@@ -13,9 +13,10 @@ app.use('/', express.static('../client'));
 // app.use('/me', express.static(__dirname));
 
 io.on('connection', (socket) => {
-	console.log('User connected');
-
 	socket.on('set-username', (username) => {
+		if(username) console.log(`User "${username}" connected.`);
+		else console.log("A user connected");
+
 		socket.username = username;
 	});
 
