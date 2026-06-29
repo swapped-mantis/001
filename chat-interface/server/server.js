@@ -10,7 +10,10 @@ const io = new Server(server);
 app.use(cors());
 
 app.use('/', express.static('../client'));
-// app.use('/me', express.static(__dirname));
+app.use('/dev', (req, res) => {
+	console.log(req.headers);
+	res.status(200).json({ "message": "Successful" });
+});
 
 io.on('connection', (socket) => {
 	socket.on('set-username', (username) => {

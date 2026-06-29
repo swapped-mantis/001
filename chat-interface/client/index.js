@@ -1,4 +1,5 @@
 const socket = io();
+
 const input = document.getElementById('txt-input');
 
 document.querySelector('#snd-btn').addEventListener('click', sendText);
@@ -50,4 +51,4 @@ socket.on('chat-message', (message) => {
   li.appendChild(textCtn);
   li.classList.add('text');
   txtList.appendChild(li);
-})
+});
